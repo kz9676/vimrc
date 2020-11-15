@@ -1,0 +1,99 @@
+[29] DESCRIPTION -------------------------------------------------------------
+
+Install and reload ~/.vimrc configurations in real-time.
+
+[30] VERSION -----------------------------------------------------------------
+
+0.0.0.1
+
+[31] AUTHORS -----------------------------------------------------------------
+
+Kostya Zolotarov <kostya.zolotarov@gmail.com>
+
+[32] FEATURES ----------------------------------------------------------------
+
+* Vim Bash configuration
+* Vim C configuration
+
+[33] EXAMPLES ----------------------------------------------------------------
+
+Install Bash configuration and reload ~/.vimrc.
+
+$ vimrc bash
+
+Install C configuration and reload ~/.vimrc.
+
+$ vimrc c
+
+Display usage options and application version.
+
+$ vimrc help
+
+[34] INSTALL -----------------------------------------------------------------
+
+Install the vimrc script to $(HOME) path.
+
+$ make install
+
+Uninstall the vimrc script to $(HOME) path.
+
+$ make uninstall
+
+[35] FILES -------------------------------------------------------------------
+
+.
+|--  ./API
+|--  ./AUTHORS
+|--  ./BACKGROUND
+|--  ./bin
+|--  ./BUILD
+|--  ./CHANGELOG
+|--  ./DEFECTS
+|--  ./DEPENDENCIES
+|--  ./DESCRIPTION
+|--  ./DESIGN
+|--  ./doc
+|--  ./etc
+|--  ./EXAMPLES
+|--  ./FEATURES
+|--  ./FILES
+|--  ./include
+|--  ./INSTALL
+|--  ./lib
+|--  ./LICENSE
+|--  ./log
+|--  ./Makefile
+|--  ./README
+|--  ./REQUIREMENTS
+|--  ./SOURCES
+|--  ./src
+|--  ./tags
+|--  ./TEST
+\--  ./VERSION
+
+28 files
+
+[36] LICENSE -----------------------------------------------------------------
+
+The MIT License (MIT)
+
+Copyright (c) 2020, Kostya Zolotarov
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+

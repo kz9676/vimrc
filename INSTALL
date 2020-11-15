@@ -1,0 +1,7 @@
+Install the vimrc script to $(HOME) path.
+
+$ make install
+
+Uninstall the vimrc script to $(HOME) path.
+
+$ make uninstall

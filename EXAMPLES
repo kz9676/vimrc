@@ -1,0 +1,11 @@
+Install Bash configuration and reload ~/.vimrc.
+
+$ vimrc bash
+
+Install C configuration and reload ~/.vimrc.
+
+$ vimrc c
+
+Display usage options and application version.
+
+$ vimrc help
