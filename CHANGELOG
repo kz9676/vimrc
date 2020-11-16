@@ -1,7 +1,22 @@
+* 2faee6c 
+|  2020-11-16 
+|  Kostya Zolotarov 
+|  Makefile system install target (HEAD -> master, origin/master) 
+| 
+* 334fade 
+|  2020-11-16 
+|  Kostya Zolotarov 
+|  MQL4 configuration target 
+| 
+* a6f36e7 
+|  2020-11-16 
+|  Kostya Zolotarov 
+|  Bash and C configuration targets 
+| 
 * 5e1dc53 
 |  2020-11-15 
 |  Kostya Zolotarov 
-|  Makefile test target (HEAD -> master, origin/master) 
+|  Makefile test target 
 | 
 * 9196764 
 |  2020-11-15 

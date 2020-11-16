@@ -103,6 +103,8 @@ install:
 	@if [ ! -d $(SYS.DIR.ETC) ]; then mkdir -pv $(SYS.DIR.ETC); fi
 	@if [ ! -d $(SYS.DIR.DOC) ]; then mkdir -pv $(SYS.DIR.DOC); fi
 	@if [ ! -d $(SYS.DIR.LOG) ]; then mkdir -pv $(SYS.DIR.LOG); fi
+	@if [   -f $(PRJ.BIN)     ]; then cp -fv $(PRJ.BIN) $(SYS.DIR.BIN); fi
+	@if [   -f $(SYS.BIN)     ]; then chmod +x $(SYS.BIN); fi
 
 uninstall:
 	@if [ -f $(SYS.INC) ]; then rm -fv $(SYS.INC); fi
