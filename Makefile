@@ -67,25 +67,26 @@ setup:
 	@if [ ! -d $(PRJ.DIR.LOG) ]; then mkdir -pv $(PRJ.DIR.LOG); fi
 
 build: setup
-	chmod +x $(PRJ)
+	@if [ -f $(PRJ.SRC) ]; then cp -fv $(PRJ.SRC) $(PRJ.DIR.BIN); fi
+	chmod +x $(PRJ.BIN)
 
 list:
-	@if [ -d $(PRJ.DIR.INC) ]; then ls -d $(PRJ.DIR.INC); ls -a $(PRJ.DIR.INC); fi
-	@if [ -d $(PRJ.DIR.SRC) ]; then ls -d $(PRJ.DIR.SRC); ls -a $(PRJ.DIR.SRC); fi
-	@if [ -d $(PRJ.DIR.BIN) ]; then ls -d $(PRJ.DIR.BIN); ls -a $(PRJ.DIR.BIN); fi
-	@if [ -d $(PRJ.DIR.LIB) ]; then ls -d $(PRJ.DIR.LIB); ls -a $(PRJ.DIR.LIB); fi
-	@if [ -d $(PRJ.DIR.ETC) ]; then ls -d $(PRJ.DIR.ETC); ls -a $(PRJ.DIR.ETC); fi
-	@if [ -d $(PRJ.DIR.DOC) ]; then ls -d $(PRJ.DIR.DOC); ls -a $(PRJ.DIR.DOC); fi
-	@if [ -d $(PRJ.DIR.LOG) ]; then ls -d $(PRJ.DIR.LOG); ls -a $(PRJ.DIR.LOG); fi
-	@if [ -d $(SYS.DIR.INC) ]; then ls -d $(SYS.DIR.INC); ls -a $(SYS.DIR.INC); fi
-	@if [ -d $(SYS.DIR.SRC) ]; then ls -d $(SYS.DIR.SRC); ls -a $(SYS.DIR.SRC); fi
-	@if [ -d $(SYS.DIR.BIN) ]; then ls -d $(SYS.DIR.BIN); ls -a $(SYS.DIR.BIN); fi
-	@if [ -d $(SYS.DIR.LIB) ]; then ls -d $(SYS.DIR.LIB); ls -a $(SYS.DIR.LIB); fi
-	@if [ -d $(SYS.DIR.ETC) ]; then ls -d $(SYS.DIR.ETC); ls -a $(SYS.DIR.ETC); fi
-	@if [ -d $(SYS.DIR.DOC) ]; then ls -d $(SYS.DIR.DOC); ls -a $(SYS.DIR.DOC); fi
-	@if [ -d $(SYS.DIR.LOG) ]; then ls -d $(SYS.DIR.LOG); ls -a $(SYS.DIR.LOG); fi
+	@if [ -d $(PRJ.DIR.INC) ]; then ls -d $(PRJ.DIR.INC); ls -a $(PRJ.DIR.INC)/$(PRJ)*; fi
+	@if [ -d $(PRJ.DIR.SRC) ]; then ls -d $(PRJ.DIR.SRC); ls -a $(PRJ.DIR.SRC)/$(PRJ)*; fi
+	@if [ -d $(PRJ.DIR.BIN) ]; then ls -d $(PRJ.DIR.BIN); ls -a $(PRJ.DIR.BIN)/$(PRJ)*; fi
+	@if [ -d $(PRJ.DIR.LIB) ]; then ls -d $(PRJ.DIR.LIB); ls -a $(PRJ.DIR.LIB)/$(PRJ)*; fi
+	@if [ -d $(PRJ.DIR.ETC) ]; then ls -d $(PRJ.DIR.ETC); ls -a $(PRJ.DIR.ETC)/$(PRJ)*; fi
+	@if [ -d $(PRJ.DIR.DOC) ]; then ls -d $(PRJ.DIR.DOC); ls -a $(PRJ.DIR.DOC)/$(PRJ)*; fi
+	@if [ -d $(PRJ.DIR.LOG) ]; then ls -d $(PRJ.DIR.LOG); ls -a $(PRJ.DIR.LOG)/$(PRJ)*; fi
+	@if [ -d $(SYS.DIR.INC) ]; then ls -d $(SYS.DIR.INC); ls -a $(SYS.DIR.INC)/$(PRJ)*; fi
+	@if [ -d $(SYS.DIR.SRC) ]; then ls -d $(SYS.DIR.SRC); ls -a $(SYS.DIR.SRC)/$(PRJ)*; fi
+	@if [ -d $(SYS.DIR.BIN) ]; then ls -d $(SYS.DIR.BIN); ls -a $(SYS.DIR.BIN)/$(PRJ)*; fi
+	@if [ -d $(SYS.DIR.LIB) ]; then ls -d $(SYS.DIR.LIB); ls -a $(SYS.DIR.LIB)/$(PRJ)*; fi
+	@if [ -d $(SYS.DIR.ETC) ]; then ls -d $(SYS.DIR.ETC); ls -a $(SYS.DIR.ETC)/$(PRJ)*; fi
+	@if [ -d $(SYS.DIR.DOC) ]; then ls -d $(SYS.DIR.DOC); ls -a $(SYS.DIR.DOC)/$(PRJ)*; fi
+	@if [ -d $(SYS.DIR.LOG) ]; then ls -d $(SYS.DIR.LOG); ls -a $(SYS.DIR.LOG)/$(PRJ)*; fi
 
-test:
+test: build
 	./$(PRJ.BIN)
 
 package:
@@ -98,11 +99,6 @@ install:
 	@if [ ! -d $(SYS.DIR.ETC) ]; then mkdir -pv $(SYS.DIR.ETC); fi
 	@if [ ! -d $(SYS.DIR.DOC) ]; then mkdir -pv $(SYS.DIR.DOC); fi
 	@if [ ! -d $(SYS.DIR.LOG) ]; then mkdir -pv $(SYS.DIR.LOG); fi
-	@if [ -f $(PRJ.INC) ]; then cp -fv $(PRJ.INC) $(SYS.DIR.INC); fi
-	@if [ -f $(PRJ.BIN) ]; then cp -fv $(PRJ.BIN) $(SYS.DIR.BIN); fi
-	@if [ -f $(PRJ.LIB) ]; then cp -fv $(PRJ.LIB) $(SYS.DIR.LIB); fi
-	@if [ -f $(PRJ.ETC) ]; then cp -fv $(PRJ.ETC) $(SYS.DIR.ETC); fi
-	@if [ -f $(PRJ.DOC) ]; then cp -fv $(PRJ.DOC) $(SYS.DIR.DOC); fi
 
 uninstall:
 	@if [ -f $(SYS.INC) ]; then rm -fv $(SYS.INC); fi
@@ -112,9 +108,7 @@ uninstall:
 	@if [ -f $(SYS.DOC) ]; then rm -fv $(SYS.DOC); fi
 
 clean:
-	@if [ -d $(PRJ.DIR.BIN) ]; then rm -rfv $(PRJ.DIR.BIN); fi
-	@if [ -d $(PRJ.DIR.LIB) ]; then rm -rfv $(PRJ.DIR.LIB); fi
-	@if [ -d $(PRJ.DIR.LOG) ]; then rm -rfv $(PRJ.DIR.LOG); fi
+	@if [ -f $(PRJ.BIN) ]; then rm -fv $(PRJ.BIN); fi
 
 help:
 	@echo "Usage: make {setup,build,list,test,package,install,uninstall,clean,help}"
