@@ -48,6 +48,8 @@
 install_bash_configuration() 
 {
     echo "Installing Bash configuration to ~/.vimrc ..."
+    rm ~/.vimrc
+    ln -s ~/Sources/settings/src/vim/vimrc-bash ~/.vimrc
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
@@ -59,6 +61,8 @@ install_bash_configuration()
 install_c_configuration() 
 {
     echo "Installing C configuration to ~/.vimrc ..."
+    rm ~/.vimrc
+    ln -s ~/Sources/settings/src/vim/vimrc-c ~/.vimrc
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
