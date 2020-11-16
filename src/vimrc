@@ -3,15 +3,11 @@
 #===============================================================================
 #
 #          FILE: vimrc
-#         USAGE: vimrc {bash|c|help}
-#   DESCRIPTION: Apply ~/.vimrc configurations in real-time. 
-#       OPTIONS: ---
-#  REQUIREMENTS: ---
-#          BUGS: ---
-#         NOTES: ---
+#         USAGE: vimrc {bash|c|mql|help}
+#   DESCRIPTION: Install ~/.vimrc configurations in real-time. 
+#  REQUIREMENTS: GNU bash 5.0.3, GNU make 4.2.1
 #        AUTHOR: Kostya Zolotarov, <kostya.zolotarov@gmail.com>
 #       CREATED: 2020-11-15 14:39
-#      REVISION: ---
 #
 #===============================================================================
 #
@@ -66,6 +62,19 @@ install_c_configuration()
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
+#          NAME:  install_mql_configuration
+#   DESCRIPTION:  Install and reload MQL4 configuration of ~/.vimrc.  
+#    PARAMETERS:  None 
+#       RETURNS:  Bash exit status 
+#-------------------------------------------------------------------------------
+install_mql_configuration() 
+{
+    echo "Installing MQL4 configuration to ~/.vimrc ..."
+    rm ~/.vimrc
+    ln -s ~/Sources/settings/src/vim/vimrc-mql4 ~/.vimrc
+}
+
+#---  FUNCTION  ----------------------------------------------------------------
 #          NAME:  show_usage
 #   DESCRIPTION:  Display application usage options and version. 
 #    PARAMETERS:  None 
@@ -73,7 +82,7 @@ install_c_configuration()
 #-------------------------------------------------------------------------------
 show_usage() 
 {
-    echo $"Usage: "${0##*/}" {bash|c|help}"
+    echo $"Usage: "${0##*/}" {bash|c|mql|help}"
 }
 
 case "$1" in 
@@ -84,6 +93,10 @@ case "$1" in
 
     c)
         install_c_configuration
+        ;;
+
+    mql)
+        install_mql_configuration
         ;;
 
     *)
