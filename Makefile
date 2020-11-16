@@ -67,8 +67,8 @@ setup:
 	@if [ ! -d $(PRJ.DIR.LOG) ]; then mkdir -pv $(PRJ.DIR.LOG); fi
 
 build: setup
-	@if [ -f $(PRJ.SRC) ]; then cp -fv $(PRJ.SRC) $(PRJ.DIR.BIN); fi
-	chmod +x $(PRJ.BIN)
+	@if [ ! -f $(PRJ.BIN) ]; then cp -fv $(PRJ.SRC) $(PRJ.DIR.BIN); fi
+	@if [   -f $(PRJ.BIN) ]; then chmod +x $(PRJ.BIN); fi
 
 list:
 	@if [ -d $(PRJ.DIR.INC) ]; then ls -d $(PRJ.DIR.INC); ls -a $(PRJ.DIR.INC)/$(PRJ)*; fi
@@ -86,8 +86,12 @@ list:
 	@if [ -d $(SYS.DIR.DOC) ]; then ls -d $(SYS.DIR.DOC); ls -a $(SYS.DIR.DOC)/$(PRJ)*; fi
 	@if [ -d $(SYS.DIR.LOG) ]; then ls -d $(SYS.DIR.LOG); ls -a $(SYS.DIR.LOG)/$(PRJ)*; fi
 
-test: build
-	./$(PRJ.BIN)
+test:
+	@if [ ! -f $(PRJ.BIN) ]; then echo "ERROR: Test not found. Build the project."; fi
+	@if [   -f $(PRJ.BIN) ]; then $(PRJ.BIN) bash  > $(PRJ.LOG) 2>&1; fi
+	@if [   -f $(PRJ.BIN) ]; then $(PRJ.BIN) c    >> $(PRJ.LOG) 2>&1; fi
+	@if [   -f $(PRJ.BIN) ]; then $(PRJ.BIN) help >> $(PRJ.LOG) 2>&1; fi
+	@if [   -f $(PRJ.BIN) ]; then cat $(PRJ.LOG); fi
 
 package:
 
@@ -109,6 +113,7 @@ uninstall:
 
 clean:
 	@if [ -f $(PRJ.BIN) ]; then rm -fv $(PRJ.BIN); fi
+	@if [ -f $(PRJ.LOG) ]; then rm -fv $(PRJ.LOG); fi
 
 help:
 	@echo "Usage: make {setup,build,list,test,package,install,uninstall,clean,help}"

@@ -1,4 +1,14 @@
+* 2e44ef6 
+|  2020-11-15 
+|  Kostya Zolotarov 
+|  Makefile test target (HEAD -> master, origin/master) 
+| 
+* 9196764 
+|  2020-11-15 
+|  Kostya Zolotarov 
+|  Makefile build, test, install, uninstall and clean targets 
+| 
 * 7505452 
    2020-11-15 
    Kostya Zolotarov 
-   Initial commit (HEAD -> master, origin/master) 
+   Initial commit 
