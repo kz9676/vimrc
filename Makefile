@@ -24,6 +24,8 @@
 
 all: build 
 
+.PHONY: test
+
 PRJ         = $(notdir $(CURDIR))
 PRJ.ENV     = .
 PRJ.DIR.INC = $(PRJ.ENV)/include
