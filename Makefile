@@ -24,7 +24,7 @@
 
 all: build 
 
-.PHONY: test
+.PHONY: test, install
 
 PRJ         = $(notdir $(CURDIR))
 PRJ.ENV     = .
