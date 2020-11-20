@@ -92,6 +92,7 @@ test:
 	@if [ ! -f $(PRJ.BIN) ]; then echo "ERROR: Test not found. Build the project."; fi
 	@if [   -f $(PRJ.BIN) ]; then $(PRJ.BIN) bash  > $(PRJ.LOG) 2>&1; fi
 	@if [   -f $(PRJ.BIN) ]; then $(PRJ.BIN) c    >> $(PRJ.LOG) 2>&1; fi
+	@if [   -f $(PRJ.BIN) ]; then $(PRJ.BIN) mql  >> $(PRJ.LOG) 2>&1; fi
 	@if [   -f $(PRJ.BIN) ]; then $(PRJ.BIN) help >> $(PRJ.LOG) 2>&1; fi
 	@if [   -f $(PRJ.BIN) ]; then cat $(PRJ.LOG); fi
 
